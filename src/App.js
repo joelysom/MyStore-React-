@@ -1,10 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css'; // Importando o arquivo CSS
 
 const App = () => {
   const [loading, setLoading] = useState(false);
   const [gameLoaded, setGameLoaded] = useState(false);
   const [backgroundGif, setBackgroundGif] = useState(''); // Estado para controlar o fundo
+  const [introPlayed, setIntroPlayed] = useState(false); // Estado para controlar se a intro foi exibida
+
+  useEffect(() => {
+    // Adiciona um listener para a tecla Enter para pular a intro
+    const handleSkipIntro = (e) => {
+      if (e.key === 'Enter' && !introPlayed) {
+        setIntroPlayed(true);
+      }
+    };
+
+    window.addEventListener('keydown', handleSkipIntro);
+    return () => {
+      window.removeEventListener('keydown', handleSkipIntro);
+    };
+  }, [introPlayed]);
 
   // Função para carregar o jogo
   const loadGame = async (romUrl) => {
@@ -44,6 +59,21 @@ const App = () => {
   const handleMouseLeave = () => {
     setBackgroundGif(''); // Restaura o fundo original
   };
+  
+  if (!introPlayed) {
+    return (
+      <div className="intro-container">
+        <video 
+          src="/intro.mp4" 
+          className="intro-video" 
+          autoPlay 
+          muted 
+          onEnded={() => setIntroPlayed(true)} // Quando o vídeo terminar, a intro será considerada concluída
+        />
+        <p className="skip-intro">Pressione Enter para pular</p>
+      </div>
+    );
+  }
 
   return (
     <div className="app-container">
