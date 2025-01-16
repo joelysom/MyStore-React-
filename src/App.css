@@ -65,44 +65,95 @@
   z-index: 2;
 }
 
-/* Estilo dos cards */
+/* Container para o carrossel */
 .games-container {
   display: flex;
-  justify-content: center;
+  overflow-x: auto;
   gap: 20px;
-  flex-wrap: wrap;
   margin-top: 320px;
+  padding: 10px;
+  scroll-behavior: smooth; /* Suaviza o scroll */
+  cursor: grab; /* Mostra a mãozinha ao passar o mouse */
 }
 
-/* Estilos para os cards de jogos */
+.games-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px; /* Espaçamento entre os cards */
+}
+
+/* Container do carrossel */
+.carousel-container {
+  display: flex; /* Exibe os itens em linha */
+  overflow-x: scroll; /* Permite rolar horizontalmente */
+  scroll-snap-type: x mandatory; /* Ativa o efeito de snap */
+  gap: 20px; /* Espaçamento entre os cards */
+  padding: 10px; /* Adiciona espaçamento interno */
+  width: 100%; /* Garante que ocupe toda a largura disponível */
+  -webkit-overflow-scrolling: touch; /* Suaviza a rolagem no mobile */
+}
+
 .game-card {
-  width: 250px;
-  height: 350px;
-  position: relative;
-  cursor: pointer;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.game-card:hover {
-  transform: scale(1.1);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
+  flex-shrink: 0; /* Impede que os cards encolham */
+  width: 150px; /* Largura dos cards */
+  height: 200px; /* Altura dos cards */
+  scroll-snap-align: center; /* Alinha o card ao centro ao rolar */
+  cursor: pointer; /* Indicador de que é clicável */
 }
 
 .game-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; /* Ajusta a imagem sem distorcer */
 }
 
 .game-title {
+  text-align: center;
+  color: white;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.game-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.game-image {
+  width: 100%;
+  height: 70%; /* Mantém a proporção para o tamanho menor */
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.game-title {
+  margin-top: 5px;
+  font-size: 0.9rem; /* Tamanho menor do texto */
+  text-align: center;
+  padding: 5px;
+}
+
+.sound-button {
   position: absolute;
-  bottom: 10px;
-  left: 10px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-  color: #fff;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.sound-icon {
+  width: 30px;
+  height: 30px;
+  filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.5)); /* Sombra no ícone */
+}
+
+.sound-button img {
+  transition: filter 0.3s ease; /* Suaviza a troca de ícones */
+}
+
+.sound-button:hover img {
+  filter: brightness(1.2); /* Aumenta o brilho ao passar o mouse */
 }

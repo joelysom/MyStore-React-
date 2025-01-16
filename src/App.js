@@ -10,7 +10,7 @@ const App = () => {
   const loadGame = async (romUrl) => {
     try {
       setLoading(true);
-      setGameLoaded(true);  // Marca que o jogo foi carregado
+      setGameLoaded(true); // Marca que o jogo foi carregado
 
       const { Nostalgist } = await import('https://esm.run/nostalgist');
 
@@ -19,6 +19,8 @@ const App = () => {
         await Nostalgist.megadrive(romUrl);
       } else if (romUrl.endsWith('.gba')) {
         await Nostalgist.gba(romUrl);
+      } else if (romUrl.endsWith('.smc')) {
+        await Nostalgist.snes(romUrl);
       }
 
       console.log('Jogo carregado com sucesso!');
@@ -76,35 +78,160 @@ const App = () => {
       {/* Seleção de jogos */}
       {!gameLoaded && (
         <div className="games-container">
+          {/* Sonic 3 */}
           <div 
             className="game-card" 
             onClick={() => handleButtonClick('https://raw.githubusercontent.com/joelysom/git-test/main/assets/roms/Sonic3.md')}
-            onMouseEnter={() => handleMouseEnter('/sonic3.gif')} // Altera o fundo para o GIF
-            onMouseLeave={handleMouseLeave} // Restaura o fundo original
+            onMouseEnter={() => handleMouseEnter('/sonic3.gif')}
+            onMouseLeave={handleMouseLeave}
           >
             <img src="/sonic3.jpg" alt="Sonic 3" className="game-image" />
             <div className="game-title">Sonic 3 (Megadrive)</div>
           </div>
 
+          {/* Sonic Advance 2 */}
           <div 
             className="game-card" 
             onClick={() => handleButtonClick('https://raw.githubusercontent.com/joelysom/git-test/main/assets/roms/sonicadvance2.gba')}
-            onMouseEnter={() => handleMouseEnter('/sonicadvance2.gif')} // Altera o fundo para o GIF
-            onMouseLeave={handleMouseLeave} // Restaura o fundo original
+            onMouseEnter={() => handleMouseEnter('/sonicadvance2.gif')}
+            onMouseLeave={handleMouseLeave}
           >
             <img src="/sonicadvance2.png" alt="Sonic Advance 2" className="game-image" />
             <div className="game-title">Sonic Advance 2 (GBA)</div>
           </div>
 
+          {/* Pokémon FireRed */}
           <div 
             className="game-card" 
             onClick={() => handleButtonClick('https://raw.githubusercontent.com/joelysom/git-test/main/assets/roms/firered.gba')}
-            onMouseEnter={() => handleMouseEnter('/firered.gif')} // Altera o fundo para o GIF
-            onMouseLeave={handleMouseLeave} // Restaura o fundo original
+            onMouseEnter={() => handleMouseEnter('/firered.gif')}
+            onMouseLeave={handleMouseLeave}
           >
             <img src="/firered.jpeg" alt="Pokémon FireRed" className="game-image" />
             <div className="game-title">Pokémon FireRed (GBA)</div>
           </div>
+
+          {/* Street Fighter Alpha 3 */}
+          <div 
+            className="game-card" 
+            onClick={() => handleButtonClick('https://raw.githubusercontent.com/joelysom/git-test/main/assets/roms/StreetFA2.gba')}
+            onMouseEnter={() => handleMouseEnter('/street.gif')}
+            onMouseLeave={handleMouseLeave}
+          >
+            <img src="/streetfighter3.jpg" alt="Street Fighter Alpha 3" className="game-image" />
+            <div className="game-title">Street Fighter Alpha 3 (GBA)</div>
+          </div>
+
+          {/* Castlevania: Bloodlines */}
+          <div 
+            className="game-card" 
+            onClick={() => handleButtonClick('https://raw.githubusercontent.com/joelysom/git-test/main/assets/roms/CastlevaniaBlood.md')}
+            onMouseEnter={() => handleMouseEnter('/castlevania.gif')}
+            onMouseLeave={handleMouseLeave}
+          >
+            <img src="/castlevania.jpg" alt="Castlevania: Bloodlines" className="game-image" />
+            <div className="game-title">Castlevania: Bloodlines (Megadrive)</div>
+          </div>
+
+          {/* Kirby Nightmare in Dreamland */}
+          <div 
+            className="game-card" 
+            onClick={() => handleButtonClick('https://raw.githubusercontent.com/joelysom/git-test/main/assets/roms/kirbynightmareindreamland.gba')}
+            onMouseEnter={() => handleMouseEnter('/kirbynightmareindreamland.gif')}
+            onMouseLeave={handleMouseLeave}
+          >
+            <img src="/kirbynightmareindreamland.jpeg" alt="Kirby Nightmare in Dreamland" className="game-image" />
+            <div className="game-title">Kirby: Nightmare in Dreamland (GBA)</div>
+          </div>
+
+          {/* Legend of Zelda: Minish Cap */}
+          <div 
+            className="game-card" 
+            onClick={() => handleButtonClick('https://raw.githubusercontent.com/joelysom/git-test/main/assets/roms/legendzeldaminishcap.gba')}
+            onMouseEnter={() => handleMouseEnter('/legendzeldaminishcap.gif')}
+            onMouseLeave={handleMouseLeave}
+          >
+            <img src="/legendzeldaminishcap.jpeg" alt="Legend of Zelda: Minish Cap" className="game-image" />
+            <div className="game-title">Legend of Zelda: Minish Cap (GBA)</div>
+          </div>
+
+          {/* Mortal Kombat 3 */}
+          <div 
+            className="game-card" 
+            onClick={() => handleButtonClick('https://raw.githubusercontent.com/joelysom/git-test/main/assets/roms/mortalkombat3.md')}
+            onMouseEnter={() => handleMouseEnter('/mortalkombat3.gif')}
+            onMouseLeave={handleMouseLeave}
+          >
+            <img src="/mortalkombat3.jpeg" alt="Mortal Kombat 3" className="game-image" />
+            <div className="game-title">Mortal Kombat 3 (Megadrive)</div>
+          </div>
+
+          {/* Pokémon Emerald */}
+          <div 
+            className="game-card" 
+            onClick={() => handleButtonClick('https://raw.githubusercontent.com/joelysom/git-test/main/assets/roms/pokemonemerald.gba')}
+            onMouseEnter={() => handleMouseEnter('/pokemonemerald.gif')}
+            onMouseLeave={handleMouseLeave}
+          >
+            <img src="/pokemonemerald.jpeg" alt="Pokémon Emerald" className="game-image" />
+            <div className="game-title">Pokémon Emerald (GBA)</div>
+          </div>
+
+          {/* Sonic 3D Blast */}
+          <div 
+            className="game-card" 
+            onClick={() => handleButtonClick('https://raw.githubusercontent.com/joelysom/git-test/main/assets/roms/sonic3dblast.md')}
+            onMouseEnter={() => handleMouseEnter('/sonic3dblast.gif')}
+            onMouseLeave={handleMouseLeave}
+          >
+            <img src="/sonic3dblast.jpeg" alt="Sonic 3D Blast" className="game-image" />
+            <div className="game-title">Sonic 3D Blast (Megadrive)</div>
+          </div>
+
+          {/* Super Mario Advance 2: Super Mario World */}
+          <div 
+            className="game-card" 
+            onClick={() => handleButtonClick('https://raw.githubusercontent.com/joelysom/git-test/main/assets/roms/supermarioadvance2supermarioworld.gba')}
+            onMouseEnter={() => handleMouseEnter('/supermarioadvance2supermarioworld.gif')}
+            onMouseLeave={handleMouseLeave}
+          >
+            <img src="/supermarioadvance2supermarioworld.jpeg" alt="Super Mario Advance 2" className="game-image" />
+            <div className="game-title">Super Mario Advance 2: Super Mario World (GBA)</div>
+          </div>
+
+          {/* Mega Man X */}
+          <div 
+            className="game-card" 
+            onClick={() => handleButtonClick('https://raw.githubusercontent.com/joelysom/git-test/main/assets/roms/megamanx.smc')}
+            onMouseEnter={() => handleMouseEnter('/megamanx.gif')}
+            onMouseLeave={handleMouseLeave}
+          >
+            <img src="/megamanx.png" alt="Mega Man X" className="game-image" />
+            <div className="game-title">Mega Man X (Super Nintendo)</div>
+          </div>
+
+          {/* Final Fantasy Tactics Advance */}
+          <div 
+            className="game-card" 
+            onClick={() => handleButtonClick('https://raw.githubusercontent.com/joelysom/git-test/main/assets/roms/finalfantasytacticsadvance.gba')}
+            onMouseEnter={() => handleMouseEnter('/finalfantasytacticsadvance.gif')}
+            onMouseLeave={handleMouseLeave}
+          >
+            <img src="/finalfantasytacticsadvance.jpeg" alt="Final Fantasy Tactics Advance" className="game-image" />
+            <div className="game-title">Final Fantasy Tactics Advance (GBA)</div>
+          </div>
+
+          {/* Metroid Fusion */}
+          <div 
+            className="game-card" 
+            onClick={() => handleButtonClick('https://raw.githubusercontent.com/joelysom/git-test/main/assets/roms/metroidfusion.gba')}
+            onMouseEnter={() => handleMouseEnter('/metroidfusion.gif')}
+            onMouseLeave={handleMouseLeave}
+          >
+            <img src="/metroidfusion.jpg" alt="Metroid Fusion" className="game-image" />
+            <div className="game-title">Metroid Fusion (GBA)</div>
+          </div>
+
         </div>
       )}
 
