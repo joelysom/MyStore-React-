@@ -1,70 +1,123 @@
-# Getting Started with Create React App
+# Documentação do Projeto: Emulador Sega Genesis com React
+![GamingFlix](gamingFLIX.PNG)
+## Introdução
+Este projeto tem como objetivo desenvolver um emulador do console Sega Genesis utilizando React como base para a interface. A aplicação permite a execução de jogos retro, proporcionando uma experiência nostálgica para os usuários.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
 
-## Available Scripts
+## Tecnologias Utilizadas
 
-In the project directory, you can run:
+- **React**: Biblioteca principal para o desenvolvimento da interface do usuário.
+- **React Router DOM**: Gerenciamento de rotas para navegação dentro da aplicação.
+- **Nostalgist**: Biblioteca para emulação do hardware Sega Genesis.
+- **React DOM**: Renderização dos componentes React no DOM.
+- **React Scripts**: Scripts e ferramentas de suporte ao desenvolvimento.
+- **CRA Template**: Template base para inicializar o projeto com Create React App.
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Estrutura do Projeto
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Abaixo está a estrutura inicial do projeto:
 
-### `npm test`
+```
+sega-genesis-emulator/
+├── node_modules/       # Dependências do projeto
+├── public/             # Arquivos públicos, como index.html
+├── src/                # Código-fonte principal
+│   ├── components/     # Componentes reutilizáveis
+│   ├── pages/          # Páginas da aplicação
+│   ├── styles/         # Arquivos de estilo
+│   ├── App.js          # Componente principal
+│   ├── index.js        # Ponto de entrada do React
+├── .gitignore          # Arquivos ignorados pelo Git
+├── package.json        # Configuração do projeto e dependências
+├── README.md           # Informações gerais do projeto
+└── yarn.lock           # Controle de versão das dependências
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## Configuração do Ambiente
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Pré-requisitos
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Certifique-se de ter as seguintes ferramentas instaladas no seu ambiente de desenvolvimento:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Node.js** (>= 14.x)
+- **Yarn** ou **npm**
 
-### `npm run eject`
+### Passos para Instalação
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/seu-usuario/sega-genesis-emulator.git
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. Navegue para o diretório do projeto:
+   ```bash
+   cd sega-genesis-emulator
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+3. Instale as dependências:
+   ```bash
+   npm install
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+4. Inicie o servidor de desenvolvimento:
+   ```bash
+   npm start
+   ```
 
-## Learn More
+5. Acesse a aplicação no navegador:
+   ```
+   http://localhost:3000
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Funcionalidades
 
-### Code Splitting
+- **Carregar ROMs**: O usuário pode Jogar Jogos Retro de plataformas como GameBoy Advance, SNS, Mega Drive, GENESIS, GBC, GB.
+- **Controles Virtuais**: Interface para controles do jogo.
+![keys](keys.PNG)
+- **Salvamento de Progresso**: Possibilidade de salvar e carregar estados dos jogos.(em testagem)
+- **Configurações de Login**: Para acessar a interface deve fazer Login sendo Usuario"ADMIN" e Senha"ADMIN".
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## Bibliotecas Utilizadas
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Lista de Dependências
 
-### Making a Progressive Web App
+- `cra-template@1.2.0`
+- `nostalgist@0.11.0`
+- `react-dom@18.2.0`
+- `react-router-dom@7.1.2`
+- `react-scripts@5.0.1`
+- `react@18.2.0`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Nostalgist
+**Descrição:** Uma biblioteca de emulação baseada em JavaScript para hardware retro. Oferece suporte ao Sega Genesis com boa performance e compatibilidade.
 
-### Advanced Configuration
+**Documentação:** [Nostalgist GitHub](https://github.com/nostalgist)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+## Roadmap
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- [x] Configurar ambiente de desenvolvimento
+- [x] Implementar interface inicial
+- [x] Roms Hospedadas em repositorio
+- [ ] Adicionar suporte a ROMs
+- [ ] Implementar controles virtuais
+- [ ] Desenvolver sistema de salvamento
+- [ ] Testes finais e lançamento
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Finalização
+
+*"É preciso desafiar as regras para encontrar a verdadeira liberdade; às vezes, voar contra o vento é a única maneira de alcançar o que parece impossível."* – **Elphaba, Wicked.**
+
+Essa frase reflete a ousadia de criar algo inovador e desafiar limites
