@@ -26,9 +26,13 @@ sega-genesis-emulator/
 ├── public/             # Arquivos públicos, como index.html
 ├── src/                # Código-fonte principal
 │   ├── components/     # Componentes reutilizáveis
-│   ├── pages/          # Páginas da aplicação
-│   ├── styles/         # Arquivos de estilo
-│   ├── App.js          # Componente principal
+│   │   ├──GenesisEmulator.js # Carregamento de Bios
+│   ├── App.js          # Componente principal(Login)
+│   ├── Cadastro.js     # Cadastra usuários no banco
+│   ├── emulator.js     # Ativa a Emulação dos jogos
+│   ├── server.js       # Inicia servidor de Entrada
+│   ├── database.js     # Leitor/Criador do Banco
+│   ├── users.db        # Banco de dados 
 │   ├── index.js        # Ponto de entrada do React
 ├── .gitignore          # Arquivos ignorados pelo Git
 ├── package.json        # Configuração do projeto e dependências
