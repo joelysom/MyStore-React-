@@ -43,8 +43,19 @@ const Cadastro = () => {
 
   const handleSubmit = async () => {
     try {
+      // Verificar se o número de usuários atingiu o limite de 5 para o e-mail
+      const checkResponse = await axios.get("http://localhost:5000/users", {
+        params: { email: formData.email },
+      });
+
+      if (checkResponse.data.length >= 5) {
+        setError("Limite de usuários atingido para este e-mail.");
+        return;
+      }
+
+      // Realiza o cadastro
       await axios.post("http://localhost:5000/register", formData);
-      setStep(4);  // Alterando para mostrar a tela final
+      setStep(4); // Alterando para mostrar a tela final
     } catch (err) {
       setError("Erro ao cadastrar. Verifique seus dados.");
     }

@@ -178,3 +178,36 @@
   margin-top: 10px;
   text-align: center;
 }
+
+
+.rom-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.rom-image {
+  width: 40px;
+  height: 40px;
+}
+
+/* Estilo dos controles do jogo */
+.game-controls {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  gap: 10px;
+  z-index: 100;
+}
+
+.save-button, .load-button, .back-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.control-image {
+  width: 40px;
+  height: 40px;
+}

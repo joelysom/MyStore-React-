@@ -1,25 +1,27 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
-import axios from "axios"; // Importando axios
+import axios from "axios";
 import "./App.css";
-import Emulator from "./emulator"; // Importando o componente do emulador
-import Cadastro from "./Cadastro"; // Importando o componente de cadastro
+import Emulator from "./emulator";
+import Cadastro from "./Cadastro";
+import SelectUser from "./SelectUser"; // Importando o componente SelectUser
+import AddUser from "./AddUser";
 
 const Login = () => {
-  const [username, setUsername] = useState("");
+  const [email, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
-  const navigate = useNavigate(); // Hook para redirecionamento
+  const navigate = useNavigate();
 
   const handleLogin = async () => {
     try {
       const response = await axios.post("http://localhost:5000/login", {
-        username,
+        email,
         password,
       });
       if (response.status === 200) {
-        navigate("/emulator"); // Redireciona para a página do emulador
+        navigate("/selectuser"); // Redireciona para a seleção de usuário
       }
     } catch (err) {
       setError("Usuário ou senha incorretos.");
@@ -35,7 +37,7 @@ const Login = () => {
   };
 
   const handleCadastroRedirect = () => {
-    navigate("/cadastro"); // Redireciona para a página de cadastro
+    navigate("/cadastro");
   };
 
   return (
@@ -57,7 +59,7 @@ const Login = () => {
         <input
           type="text"
           placeholder="Usuário"
-          value={username}
+          value={email}
           onChange={(e) => setUsername(e.target.value)}
         />
         <input
@@ -81,8 +83,10 @@ const App = () => {
     <Router>
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/emulator" element={<Emulator />} /> {/* Rota para a página do emulador */}
-        <Route path="/cadastro" element={<Cadastro />} /> {/* Rota para a página de cadastro */}
+        <Route path="/selectuser" element={<SelectUser />} /> {/* Nova rota para seleção de usuário */}
+        <Route path="/emulator" element={<Emulator />} />
+        <Route path="/cadastro" element={<Cadastro />} />
+        <Route path="/adduser" element={<AddUser />} /> {/* Rota para AddUser */}
       </Routes>
     </Router>
   );

@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import './emulator.css'; // Importando o arquivo CSS
 
 const App = () => {
+  const [rom, setRom] = useState(null);  // Estado para armazenar a ROM carregada
   const [loading, setLoading] = useState(false);
   const [gameLoaded, setGameLoaded] = useState(false);
   const [backgroundGif, setBackgroundGif] = useState(''); // Estado para controlar o fundo
   const [introPlayed, setIntroPlayed] = useState(false); // Estado para controlar se a intro foi exibida
+  const [state, setState] = useState(null); // Para salvar o estado do jogo
 
   useEffect(() => {
     // Adiciona um listener para a tecla Enter para pular a intro
@@ -44,6 +46,95 @@ const App = () => {
     } finally {
       setLoading(false);
     }
+  };
+
+
+  const saveState = async () => {
+    try {
+      if (!rom) {
+        console.error('Nenhuma ROM carregada para salvar o estado.');
+        return;
+      }
+  
+      const { Nostalgist } = await import('https://esm.run/nostalgist');
+      
+      // Passa a ROM carregada, ao invés de usar 'flappybird.nes'
+      const nostalgist = await Nostalgist.nes({ rom }); 
+      const { state } = await nostalgist.saveState();
+      setState(state);  // Atualiza o estado com o estado salvo
+      console.log('Estado do jogo salvo.');
+    } catch (error) {
+      console.error('Erro ao salvar estado:', error);
+    }
+  };
+
+  const loadState = async () => {
+    try {
+      if (!state) {
+        console.error('Nenhum estado salvo para carregar.');
+        return;
+      }
+      if (!rom) {
+        console.error('Nenhuma ROM carregada para carregar o estado.');
+        return;
+      }
+  
+      const { Nostalgist } = await import('https://esm.run/nostalgist');
+      
+      // Passa a ROM carregada, ao invés de usar 'flappybird.nes'
+      const nostalgist = await Nostalgist.nes({ rom }); 
+      await nostalgist.loadState(state);
+      console.log('Estado do jogo carregado.');
+    } catch (error) {
+      console.error('Erro ao carregar estado:', error);
+    }
+  };
+
+  const selectRom = async () => {
+    try {
+      // Verifica se a API 'showOpenFilePicker' é suportada
+      if (!window.showOpenFilePicker) {
+        alert("A API 'showOpenFilePicker' não é suportada no seu navegador.");
+        return;
+      }
+  
+      // Abre o seletor de arquivos e obtém a ROM
+      const [fileHandle] = await window.showOpenFilePicker();
+      const file = await fileHandle.getFile();
+  
+      // Atualiza o estado da ROM
+      setRom(file);  // Guarda a ROM carregada no estado
+  
+      // Importa o Nostalgist dinamicamente
+      const { Nostalgist } = await import('https://esm.run/nostalgist');
+      
+      // Carrega a ROM dependendo da extensão do arquivo
+      const romUrl = file.name;
+  
+      if (romUrl.endsWith('.nes')) {
+        await Nostalgist.nes({ rom: file });
+      } else if (romUrl.endsWith('.md')) {
+        await Nostalgist.megadrive({ rom: file });
+      } else if (romUrl.endsWith('.gba')) {
+        await Nostalgist.gba({ rom: file });
+      } else if (romUrl.endsWith('.smc')) {
+        await Nostalgist.snes({ rom: file });
+      } else {
+        throw new Error("Formato de ROM não suportado");
+      }
+  
+      console.log('ROM carregada com sucesso!');
+  
+      // Atualiza o estado para indicar que o jogo foi carregado
+      setGameLoaded(true);
+  
+    } catch (error) {
+      console.error('Erro ao carregar ROM:', error);
+    }
+  };  
+
+  const handleBackButton = () => { // Aqui está definida a função associada ao erro 'handleBackButton is not defined'
+    window.location.reload(); // Linha do erro 317:28
   };
 
   // Função para quando um botão for clicado
@@ -91,19 +182,14 @@ const App = () => {
       <div className="title-container2">
         <div className="title-background2"></div>
         <img src="/title2.png" alt="Título do Jogo" className="title-image2" />
+        <button onClick={selectRom} className="rom-button">
+            <img src="/select.png" alt="Selecionar ROM" className="rom-image" />
+          </button>
       </div>
+
 
       {loading && <p className="loading">Carregando o jogo...</p>}
 
-      {/* Exibe o botão de voltar se o jogo estiver carregado */}
-      {gameLoaded && (
-        <button 
-          onClick={() => window.location.reload()} 
-          className="back-button"
-        >
-          <img src="/back.png" alt="Back" className="back-image" />
-        </button>
-      )}
 
       {/* Seleção de jogos */}
       {!gameLoaded && (
@@ -265,10 +351,11 @@ const App = () => {
         </div>
       )}
 
-      {/* Exibe o jogo somente se estiver carregado */}
       {gameLoaded && (
-        <div className="game-running">
-          <h3>O jogo está rodando...</h3>
+        <div className="game-controls">
+          <button onClick={handleBackButton} className="back-button">
+            <img src="/back.png" alt="Voltar" className="back-image" />
+          </button>
         </div>
       )}
     </div>
