@@ -119,27 +119,7 @@ Certifique-se de ter as seguintes ferramentas instaladas no seu ambiente de dese
 - [ ] Testes finais e lançamento
 
 ---
-## Organização e Chamada
-- o servidor quando ativo ``node server.js`` ativa a conexão com o banco de dados e leitura de Entrada e Acesso a plataforma.
-![serverjs](serverjs.png)
 
-
-- o aplicativo aguarda a resposta do servidor ``http:localhost:5000/login`` para continuar a aplicação e acessar a plataforma:
-![app.js](appjs.png)
-
----
-
-- **A PLATAFORMA E EMULAÇÃO**
-
-- EMULATOR.JS! carrega o vídeo de abertura, trazendo mais gráfico e beleza a plataforma.
-![emulatorjs1](emuladorjs1.png)
-
-- *DETALHE DE LEITURA DA ROM PELO EMULADOR!!* a biblioteca faz primeiramente o download da rom e assim que abre, ela indentifica a extensão da rom "*.gba" e etc. Assim, ela consegue selecionar a bios correta para rodar o jogo.
-![emulatorjs2](emuladorjs3.png)
-
- 
-- *ACESSO A ROM!* as roms precisam ser baixadas pela função com o "onClick" para logo após serem atribuidas acima para indentificação de extenção. as roms estão em outro repositório hospedadas para serem acessadas apartir do servidor atual.
-![emulatorjs3](emuladorjs2.png)
 ## Finalização
 
 *"É preciso desafiar as regras para encontrar a verdadeira liberdade; às vezes, voar contra o vento é a única maneira de alcançar o que parece impossível."* – **Elphaba, Wicked.**

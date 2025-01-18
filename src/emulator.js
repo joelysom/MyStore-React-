@@ -7,7 +7,6 @@ const App = () => {
   const [gameLoaded, setGameLoaded] = useState(false);
   const [backgroundGif, setBackgroundGif] = useState(''); // Estado para controlar o fundo
   const [introPlayed, setIntroPlayed] = useState(false); // Estado para controlar se a intro foi exibida
-  const [state, setState] = useState(null); // Para salvar o estado do jogo
 
   useEffect(() => {
     // Adiciona um listener para a tecla Enter para pular a intro
@@ -48,47 +47,6 @@ const App = () => {
     }
   };
 
-
-  const saveState = async () => {
-    try {
-      if (!rom) {
-        console.error('Nenhuma ROM carregada para salvar o estado.');
-        return;
-      }
-  
-      const { Nostalgist } = await import('https://esm.run/nostalgist');
-      
-      // Passa a ROM carregada, ao invés de usar 'flappybird.nes'
-      const nostalgist = await Nostalgist.nes({ rom }); 
-      const { state } = await nostalgist.saveState();
-      setState(state);  // Atualiza o estado com o estado salvo
-      console.log('Estado do jogo salvo.');
-    } catch (error) {
-      console.error('Erro ao salvar estado:', error);
-    }
-  };
-
-  const loadState = async () => {
-    try {
-      if (!state) {
-        console.error('Nenhum estado salvo para carregar.');
-        return;
-      }
-      if (!rom) {
-        console.error('Nenhuma ROM carregada para carregar o estado.');
-        return;
-      }
-  
-      const { Nostalgist } = await import('https://esm.run/nostalgist');
-      
-      // Passa a ROM carregada, ao invés de usar 'flappybird.nes'
-      const nostalgist = await Nostalgist.nes({ rom }); 
-      await nostalgist.loadState(state);
-      console.log('Estado do jogo carregado.');
-    } catch (error) {
-      console.error('Erro ao carregar estado:', error);
-    }
-  };
 
   const selectRom = async () => {
     try {
@@ -182,7 +140,8 @@ const App = () => {
       <div className="title-container2">
         <div className="title-background2"></div>
         <img src="/title2.png" alt="Título do Jogo" className="title-image2" />
-        <button onClick={selectRom} className="rom-button">
+        <button onClick={selectRom} className="rom-button" onMouseEnter={() => handleMouseEnter('/carregarROM.gif')}
+            onMouseLeave={handleMouseLeave}>
             <img src="/select.png" alt="Selecionar ROM" className="rom-image" />
           </button>
       </div>

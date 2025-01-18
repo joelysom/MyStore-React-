@@ -1,23 +1,15 @@
 import React, { useState } from "react";
-import axios from "axios"; // Importando axios
 import "./Login.css";
 
 const Login = ({ onLogin }) => {
-  const [email, setEmail] = useState("");  // Renomeando para email
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleLogin = async () => {
-    try {
-      const response = await axios.post("http://localhost:5000/login", {
-        email,  // Enviando email
-        password,
-      });
-
-      if (response.status === 200) {
-        onLogin(); // Chama o callback de login bem-sucedido
-      }
-    } catch (err) {
+  const handleLogin = () => {
+    if (username === "admin" && password === "admin") {
+      onLogin();
+    } else {
       setError("Usuário ou senha incorretos.");
     }
   };
@@ -33,10 +25,10 @@ const Login = ({ onLogin }) => {
       <div className="login-box">
         <h2>Login</h2>
         <input
-          type="email"  // Alterando para 'email' para validação
-          placeholder="E-mail"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          type="text"
+          placeholder="Usuário"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
         />
         <input
           type="password"
