@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #0077ff;
+  padding: 10px 20px;
+  font-family: "Bebas Neue", sans-serif;
+}
+
+/* LOGO */
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 35px;
+  margin-right: 5px;
+}
+
+/* SEARCH BAR */
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 20px;
+  padding: 5px 10px;
+  width: 250px;
+  border: 1px solid #ccc;
+}
+
+.search-icon {
+  width: 18px;
+  margin-right: 8px;
+}
+
+.search-bar input {
+  border: none;
+  flex: 1;
+  font-size: 14px;
+  outline: none;
+}
+
+/* LOCALIZAÇÃO */
+.location {
+  display: flex;
+  align-items: center;
+  border-left: 1px solid #ccc;
+  padding-left: 8px;
+}
+
+.location img {
+  width: 16px;
+  margin-right: 4px;
+}
+
+.location span {
+  font-size: 14px;
+  color: black;
+}
+
+/* ÍCONES */
+.icons {
+  display: flex;
+  align-items: center;
+}
+
+.icon-item {
+  display: flex;
+  align-items: center;
+  color: white;
+  margin: 0 10px;
+  font-size: 14px;
+}
+
+.icon-item img {
+  height: 24px;
+  margin-right: 5px;
+}
+
+/* DROPDOWN DE ESTADOS */
+.location {
+    display: flex;
+    align-items: center;
+    border-left: 1px solid #ccc;
+    padding-left: 8px;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .location img {
+    width: 16px;
+    margin-right: 4px;
+  }
+  
+  .location span {
+    font-size: 14px;
+    color: black;
+  }
+  
+  /* Estilizando a caixa do dropdown */
+  .dropdown {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    overflow: hidden;
+    width: 80px;
+    z-index: 10;
+  }
+  
+  /* Cada item da lista */
+  .dropdown-item {
+    padding: 8px 10px;
+    font-size: 14px;
+    color: black;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .dropdown-item:hover {
+    background: #0077ff;
+    color: white;
+  }
+  

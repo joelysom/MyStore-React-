@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import './emulator.css'; // Importando o arquivo CSS
+import './emulatorpage.css'; // Importando o arquivo CSS
 
-const App = () => {
+const Emulator = () => {
   const [rom, setRom] = useState(null);  // Estado para armazenar a ROM carregada
   const [loading, setLoading] = useState(false);
   const [gameLoaded, setGameLoaded] = useState(false);
@@ -321,4 +321,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Emulator;
