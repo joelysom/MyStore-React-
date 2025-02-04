@@ -5,9 +5,13 @@ const CardVantagens = () => {
   return (
     <div className="card-vantagens">
       <div className="card-content">
-        <h3>CRIE SUA CONTA MYSTORE E APROVEITE TODAS AS VANTAGENS</h3>
-        <p>Texto de teste</p>
-        <button className="btn-vantagens">CRIAR CONTA GRATUITAMENTE</button>
+        <h3>Crie sua conta MyStore e aproveite todas as vantagens</h3>
+        <p>
+          Ganhe <strong>descontos exclusivos</strong>, ofertas personalizadas e acompanhe seus 
+          pedidos de forma prática. Faça parte da nossa comunidade e receba novidades 
+          antes de todo mundo!
+        </p>
+        <button className="btn-vantagens">Criar Conta Gratuitamente</button>
       </div>
     </div>
   );

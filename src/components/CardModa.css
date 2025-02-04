@@ -1,5 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
+.card-moda-container {
+  background: #ebebeb;
+  text-align: center;
+}
+
+.background-retangulo {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  height: calc(100% - 40px);
+  background: rgba(230, 230, 230, 0.6);
+  border-radius: 20px;
+  z-index: 0;
+}
+
+.titulo,
+.card-grid {
+  position: relative;
+  z-index: 2;
+}
+
 .card-cozinha-container {
   padding: 40px;
   background: #f5f5f5;

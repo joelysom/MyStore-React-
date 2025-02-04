@@ -1,5 +1,5 @@
 import React from "react";
-import "./CardDecoracao.css";
+import "./CardModa.css";
 
 const moda = [
   {
@@ -42,22 +42,26 @@ const moda = [
 const CardModa = () => {
   return (
     <div className="card-moda-container">
-      <h2 className="titulo">👗 Tendências da Moda</h2>
-      <div className="card-grid">
-        {moda.map((item) => (
-          <div className="card" key={item.id}>
-            <img src={item.imagem} alt={item.nome} className="card-imagem" />
-            <div className="card-info">
-              <h3 className="card-nome">{item.nome}</h3>
-              <p className="card-descricao">{item.descricao}</p>
-              <p className="card-preco">{item.preco}</p>
-              <button className="card-botao">Comprar Agora</button>
+      <div className="fundo-cinza">
+        <h2 className="titulo">👗 Tendências da Moda</h2>
+        <div className="card-grid">
+          {moda.map((item) => (
+            <div className="card" key={item.id}>
+              <img src={item.imagem} alt={item.nome} className="card-imagem" />
+              <div className="card-info">
+                <h3 className="card-nome">{item.nome}</h3>
+                <p className="card-descricao">{item.descricao}</p>
+                <p className="card-preco">{item.preco}</p>
+                <button className="card-botao">Comprar Agora</button>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );
 };
+
+  
 
 export default CardModa;
