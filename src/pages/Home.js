@@ -1,6 +1,10 @@
 import React from "react";
 import Slide from "../components/Slidebar";
 import CardCozinha from "../components/CardCozinha";
+import CardDecoracao from "../components/CardDecoracao";
+import CardMoveis from "../components/CardMoveis";
+import CardVantagens from "../components/CardVantagens";
+import CardModa from "../components/CardModa";
 import "./Home.css";
 
 const Home = () => {
@@ -16,6 +20,10 @@ const Home = () => {
       </div>
       <Slide />
       <CardCozinha />
+      <CardDecoracao />
+      <CardMoveis />
+      <CardVantagens />
+      <CardModa />
     </div>
   );
 };

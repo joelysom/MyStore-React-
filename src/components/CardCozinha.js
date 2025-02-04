@@ -1,5 +1,5 @@
 import React from "react";
-import "./CardCozinha.css";
+import "./CardMoveis.css";
 
 const produtos = [
   {
@@ -39,18 +39,18 @@ const produtos = [
   },
 ];
 
-const CardCozinha = () => {
+const CardMoveis = () => {
   return (
-    <div className="card-cozinha-container">
+    <div className="card-moveis-container">
       <h2 className="titulo">🔥 Mais Procurados em Fogões e Cozinha</h2>
       <div className="card-grid">
-        {produtos.map((produto) => (
-          <div className="card" key={produto.id}>
-            <img src={produto.imagem} alt={produto.nome} className="card-imagem" />
+        {produtos.map((movel) => (
+          <div className="card" key={movel.id}>
+            <img src={movel.imagem} alt={movel.nome} className="card-imagem" />
             <div className="card-info">
-              <h3 className="card-nome">{produto.nome}</h3>
-              <p className="card-descricao">{produto.descricao}</p>
-              <p className="card-preco">{produto.preco}</p>
+              <h3 className="card-nome">{movel.nome}</h3>
+              <p className="card-descricao">{movel.descricao}</p>
+              <p className="card-preco">{movel.preco}</p>
               <button className="card-botao">Comprar Agora</button>
             </div>
           </div>
@@ -60,4 +60,4 @@ const CardCozinha = () => {
   );
 };
 
-export default CardCozinha;
+export default CardMoveis;

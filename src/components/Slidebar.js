@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import "./Slide.css";
 
 const images = [
-  "/images/banner1.png",
-  "/images/banner2.jpg",
-  "/images/banner3.jpg",
+  "/images/banner1.svg",
+  "/images/banner2.svg",
+  "/images/banner3.svg",
 ];
 
 const Slide = () => {

@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+.card-vantagens {
+  width: 100%;
+  max-width: 1000px; /* Ajuste conforme necessário */
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 150px;
+}
+
+.card-content {
+  flex: 1;
+}
+
+.card-content h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-content p {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px;
+  color: #333;
+}
+
+.btn-vantagens {
+  background-color: #ff8000;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 18px;
+  font-family: 'Bebas Neue', sans-serif;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-vantagens:hover {
+  background-color: #e67600;
+}
