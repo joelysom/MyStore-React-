@@ -7,7 +7,7 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background-color: #333;
+    background-color: #333333;
     border-radius: 15px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   }
@@ -75,10 +75,10 @@
   }
   
   .dot.active {
-    background-color: #ff6347; /* Tom de laranja mais vibrante para indicar o slide ativo */
+    background-color: #47a6ff; /* Tom de laranja mais vibrante para indicar o slide ativo */
   }
   
   .dot:hover {
-    background-color: #ff5733;
+    background-color: #33b4ff;
   }
   

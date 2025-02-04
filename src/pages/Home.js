@@ -5,6 +5,7 @@ import CardDecoracao from "../components/CardDecoracao";
 import CardMoveis from "../components/CardMoveis";
 import CardVantagens from "../components/CardVantagens";
 import CardModa from "../components/CardModa";
+import CardAutomoveis from "../components/CardAutomoveis";
 import "./Home.css";
 
 const Home = () => {
@@ -24,6 +25,7 @@ const Home = () => {
       <CardMoveis />
       <CardVantagens />
       <CardModa />
+      <CardAutomoveis />
     </div>
   );
 };
