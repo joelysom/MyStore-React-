@@ -6,7 +6,7 @@ import CardMoveis from "../components/CardMoveis";
 import CardVantagens from "../components/CardVantagens";
 import CardModa from "../components/CardModa";
 import CardAutomoveis from "../components/CardAutomoveis";
-import "./Home.css";
+import "./Styles/Home.css";
 
 const Home = () => {
   return (

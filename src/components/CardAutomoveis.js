@@ -1,13 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";  // Importando Link do React Router
 import "./CardDecoracao.css";
 
 const automoveis = [
   {
     id: 1,
-    nome: "Carro Sedan",
-    imagem: "/images/carro.jpg",
-    descricao: "Carro sedan confortável e econômico, ideal para viagens.",
-    preco: "R$ 18.000,00",
+    nome: "Carro Hyundai",
+    imagem: "/images/carro.webp",
+    descricao: "Carro Hyundai confortável e econômico, ideal para viagens.",
+    preco: "R$ 41.500,00",
   },
   {
     id: 2,
@@ -51,7 +52,13 @@ const CardAutomoveis = () => {
               <h3 className="card-nome">{item.nome}</h3>
               <p className="card-descricao">{item.descricao}</p>
               <p className="card-preco">{item.preco}</p>
-              <button className="card-botao">Comprar Agora</button>
+
+              {/* Link para a página de produto, utilizando o id do item */}
+              {item.nome === "Carro Hyundai" && (
+                <Link to="/produto">
+                  <button className="card-botao">Comprar Agora</button>
+                </Link>
+              )}
             </div>
           </div>
         ))}
